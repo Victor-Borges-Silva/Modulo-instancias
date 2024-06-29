@@ -14,7 +14,7 @@ terraform {
 
 # Configure the AWS Provider
 provider "aws" {
-  region = "us-east-1"
+  region = "us-west-1"
 }
 
 #Pode ser usado para criar recursos em diferentes região/contas, gerando alta disponibilidade. 
