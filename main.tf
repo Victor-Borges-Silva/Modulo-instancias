@@ -15,12 +15,11 @@ data "aws_ami" "ubuntu" {
 }
 
 resource "aws_instance" "web" {
+  count         = var.numero_de_ec2
   ami           = data.aws_ami.ubuntu.id
   instance_type = "t3.micro"
 
-  tags = {
-    Name       = var.nome
-    Env        = var.ambiente
-    Plataforma = data.aws_ami.ubuntu.platform_details
-  }
+  tags = merge(var.tags, {
+    Name = "${var.tags["Name"]}${count.index}"
+  })
 }
