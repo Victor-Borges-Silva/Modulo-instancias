@@ -19,6 +19,14 @@ resource "aws_instance" "web" {
   ami           = data.aws_ami.ubuntu.id
   instance_type = "t3.micro"
 
+  metadata_options {
+    http_tokens = "required"
+  }
+
+  root_block_device {
+    encrypted = true
+  }
+
   tags = merge(var.tags, {
     Name = "${var.tags["Name"]}${count.index}"
   })
