@@ -13,3 +13,8 @@ variable "numero_de_ec2" {
   type        = number
   description = "Número de instancias EC2 a serem criadas"
 }
+
+variable "tipo_instancia" {
+  type        = string
+  description = "tipo da instancia a ser criada."
+}

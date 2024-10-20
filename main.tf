@@ -17,7 +17,7 @@ data "aws_ami" "ubuntu" {
 resource "aws_instance" "web" {
   count         = var.numero_de_ec2
   ami           = data.aws_ami.ubuntu.id
-  instance_type = "t3.micro"
+  instance_type = var.tipo_instancia
 
   metadata_options {
     http_tokens = "required"
